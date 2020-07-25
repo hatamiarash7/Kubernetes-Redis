@@ -58,7 +58,7 @@ spec:
       labels:
         name: redis-cluster
         annotations:
-          volume.beta.kubernetes.io/storage-class: www-disk
+          volume.beta.kubernetes.io/storage-class: redis-cluster
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
