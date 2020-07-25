@@ -2,7 +2,7 @@
 
  Deploy Redis cluster in Kubernetes
 
-![Docker](https://github.com/hatamiarash7/Kubernetes-Redis/workflows/Docker/badge.svg)
+![DockerImage-Github](https://github.com/hatamiarash7/Kubernetes-Redis/workflows/DockerImage-Github/badge.svg) ![DockerImage-Dockerhub](https://github.com/hatamiarash7/Kubernetes-Redis/workflows/DockerImage-Dockerhub/badge.svg)
 
 ## Install
 
