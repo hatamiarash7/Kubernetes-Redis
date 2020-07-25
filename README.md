@@ -25,7 +25,7 @@ kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podI
 
 Now we are going to create the cluster ( assign master/slave roles, distribute slot maps) using the `redis-trib` script.  
 
-Since we are going create 3 masters cluster with 3 dedicated slaves as in the diagram, the --replicas 1 flag is passed.
+Since we are going create 3 masters cluster with 3 dedicated slaves, the --replicas 1 flag is passed.
 
 ```bash
 kubectl exec -it redis-cluster-0 -- redis-trib create --replicas 1 <<< node list from previous command >>>
