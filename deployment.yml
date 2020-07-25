@@ -52,8 +52,7 @@ spec:
       labels:
         name: redis-cluster
     spec:
-      accessModes:
-          - ReadWriteOnce
+      accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 100Mi
+          storage: 1Gi
