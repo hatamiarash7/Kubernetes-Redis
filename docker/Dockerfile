@@ -18,8 +18,7 @@ RUN chmod 755 /usr/local/bin/redis-trib
 # Copy redis.conf, port=7000, datadir=/data/
 RUN mkdir -p /redis-conf
 
-COPY redis.conf /redis-conf/redis.conf
-
+COPY docker/redis.conf /redis-conf/redis.conf
 
 # Install ruby and ruby-bundler
 RUN apt-get install -y rubygems
