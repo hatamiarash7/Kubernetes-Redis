@@ -53,7 +53,7 @@ spec:
         name: redis-cluster
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: standard
+      storageClassName: hostpath
       resources:
         requests:
           storage: 1Gi
