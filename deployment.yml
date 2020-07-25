@@ -1,3 +1,18 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: redis-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/redis-cluster"
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -54,7 +69,11 @@ spec:
       annotations:
         volume.alpha.kubernetes.io/storage-class: hostpath
     spec:
+      storageClassName: manual
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
           storage: 100Mi
+      selector:
+        matchLabels:
+          type: local
