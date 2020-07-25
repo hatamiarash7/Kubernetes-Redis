@@ -3,7 +3,6 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: redis-cluster
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: Immediate
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -58,12 +57,10 @@ spec:
       name: data
       labels:
         name: redis-cluster
+        annotations:
+          volume.beta.kubernetes.io/storage-class: www-disk
     spec:
-      storageClassName: "redis-cluster"
       accessModes: ["ReadWriteOnce"]
       resources:
         requests:
-          storage: 100Mi
-      selector:
-        matchLabels:
-          type: local
+          storage: 500Mi
