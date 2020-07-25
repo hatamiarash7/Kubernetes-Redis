@@ -3,7 +3,6 @@ kind: StorageClass
 metadata:
   name: redis-cluster-data
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
 reclaimPolicy: Retain
 ---
 apiVersion: apps/v1
