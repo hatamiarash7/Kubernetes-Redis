@@ -5,6 +5,9 @@ metadata:
   labels:
     app: redis-cluster
 spec:
+  selector:
+    matchLabels:
+      app: redis-cluster
   serviceName: redis-cluster
   replicas: 6
   template:
