@@ -1,9 +1,9 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: redis-cluster
+  name: redis-cluster-data
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: Immediate
+volumeBindingMode: WaitForFirstConsumer
 reclaimPolicy: Retain
 ---
 apiVersion: apps/v1
@@ -51,20 +51,18 @@ spec:
           initialDelaySeconds: 20
           periodSeconds: 3
         volumeMounts:
-        - name: data
+        - name: redis-data
           mountPath: /data
           readOnly: false
   volumeClaimTemplates:
   - metadata:
-      name: data
+      name: redis-data
       labels:
         name: redis-cluster
-      annotations:
-        volume.beta.kubernetes.io/storage-class: redis-cluster
     spec:
       accessModes:
         - ReadWriteOnce
       resources:
         requests:
           storage: 500Mi
-      storageClassName: redis-cluster
+      storageClassName: redis-cluster-data
