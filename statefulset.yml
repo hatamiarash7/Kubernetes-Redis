@@ -36,6 +36,7 @@ spec:
       containers:
       - name: redis
         image: redis:6.0.6-alpine
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 6379
           name: client
